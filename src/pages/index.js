@@ -12,7 +12,6 @@ const IndexPage = () => (
     <Header page="home" />
     <Customers />
     <Content page="home"/>
-    <Footer />
   </Layout>
 )
 

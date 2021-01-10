@@ -10,7 +10,7 @@ function Feature({ title , desc, img, styles }){
         <h2 className="mt-2">{title}</h2>
         
           {desc !== undefined ?
-            <p>desc</p>  : 
+            <p>{desc}</p>  : 
             <div className="d-flex justify-content-center flex-wrap">
               <div className="d-flex flex-column col-5 justify-content-center align-items-center">
                 <img src={testImage} style={{width:100+'%'}} />
