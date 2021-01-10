@@ -1,36 +1,20 @@
 import React from "react"
-import PropTypes from "prop-types"
-import { Link } from "gatsby"
+import Navbar from "./navbar"
+import Hero from "./hero" 
+import HeroImage from "./heroImage" 
+import MobileNav from "./mobileNav"
 
-const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div>
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
-  </header>
-)
-
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
-
-Header.defaultProps = {
-  siteTitle: ``,
+function Header({ page }){ 
+  return(
+    <header>
+      <Navbar />
+      <div style={{zIndex: 1}} className="container-xl d-flex h-100 flex-column align-items-center justify-content-md-between flex-md-row position-relative">
+        <Hero page={page} />
+        <HeroImage page={page} />
+      </div>
+      <MobileNav />
+    </header>
+  )
 }
 
 export default Header
