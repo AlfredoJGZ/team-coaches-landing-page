@@ -3,6 +3,7 @@ import Navbar from "./navbar"
 import Hero from "./hero" 
 import HeroImage from "./heroImage" 
 import MobileNav from "./mobileNav"
+import headerBackground from "../images/header.png"
 
 function Header({ page }){ 
   return(
@@ -12,6 +13,7 @@ function Header({ page }){
         <Hero page={page} />
         <HeroImage page={page} />
       </div>
+      <img src={headerBackground} className="header-background" />
       <MobileNav />
     </header>
   )

@@ -1,47 +1,110 @@
+/* GLOBAL STYLES */
+
 * {
     font-family: 'Roboto', sans-serif;
 }
+
 html {
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
 }
+
 h1{
     max-width: fit-content;
 }
+
+a{
+    text-decoration: none;
+}
+
 a:hover{
     color: unset;
 }
-header {
-    background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
-    height: 650px;
-    position: relative;
+
+/* HEADER BACKGROUND ANIMATION */
+
+@keyframes rotate{
+    0%{
+        transform: rotate(0deg);
+    }
+    50%{
+        transform: rotate(180deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
 }
+
+header {
+    background-image: linear-gradient(to bottom right, #062f4f 0%,  #0b5085 100%);
+    height: 750px;
+    max-height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
 header::after{
+    animation-duration: 10s;
+    animation-name: rotate;
+    animation-iteration-count: infinite;
     content: "";
     display: block;
     position: absolute;
     top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    width: 100vh;
+    height: 100vh;
     background-image: url("../images/header.png");
+    background-size: cover;
+    background-position: center center;
 }
 header h1{
-    font-size: 3rem;
-    font-weight: 700;
+    font-size: clamp(1rem, 10vw, 4rem); 
 }
+
+header a{
+    color: #FFFFFF;
+    font-size: large;
+    width: fit-content;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.a-hover{
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: #FFFFFF;
+    z-index: -1;
+    border-radius: 0.25rem;
+    transition: all 0.3s ease-in-out;
+    transform: scale(0,1);
+}
+
+header a:hover{
+    color: #062f4f;
+}
+
+header a:hover .a-hover{
+    transform: scale(1,1);
+}
+
+
 button {
     background-color: transparent;
-    font-size: 1.5rem;
-    color: #000;
-    border: none; 
-    box-shadow: none;
-    outline: none;
+    max-width: 45px;
+    border: none;
 }
-button:focus, button:hover {
-    outline: none;
-    box-shadow: none;
+
+button svg{
+    filter: invert(1);
 }
+
+.menu-open svg{
+    filter: invert(0);
+}
+
 .hero-image{
     height: 50%;
     width: 100%;
@@ -57,8 +120,10 @@ button:focus, button:hover {
 }
 
 @media(min-width: 768px){
-    header{
-        height: 550px;
+    header::after{
+        width: 100vw;
+        height: 100vw;
+        background-size: contain;
     }
     .hero-image{
         width: 70%;
@@ -94,38 +159,19 @@ button:focus, button:hover {
     transform: scale(1,1);
 }
 
-nav a{
-    width: fit-content;
-    color: #000;
-    text-decoration: none;
-    transition: all 0.3s ease-in-out;
-    border-bottom: solid 2px transparent;
+.border-light{
+    border: solid 3px #FFFFFF;
 }
-
 .active{
-    border-bottom: solid 2px #FFFFFF;
+    background-color:  #FFFFFF;
+    color: #062f4f;
 }
 
-.navbar a{
-    font-size: large;
-}
 
-.a-hover{
-    font-weight: 700;
-    position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    background-color: #FFFFFF;
-    z-index: -1;
-    border-radius: 0.25rem;
-    transition: all 0.3s ease-in-out;
-    transform: scale(0,1);
-}
-.navbar > a:hover .a-hover{
-    transform: scale(1,1);
-}
+
+
+
+
 .navbar > a:hover .solution-dropdown{
     transform: scale(1,1);
 }

@@ -6,8 +6,10 @@ import { ModalContext } from "./layout"
 
 
 function MobileNav(){    
+    
     const [showModal, setShowModal] = useContext(ModalContext)
     const show= "mobile-nav d-md-none bg-light rounded d-flex flex-column m-2"
+
     return(     
         <nav className={showModal === false ? show+ " hide" : show + " open-nav"}>
             <Link className="d-inline-block px-2 mt-5"to="/product">
