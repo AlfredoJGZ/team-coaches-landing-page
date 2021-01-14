@@ -19,7 +19,7 @@ function Navbar(){
           } 
           alt="Team Coaches Logo"/>
       </Link>
-      <button className={'d-md-none rounded px-2'+ _showModal === true ? 'menu-open': ''}
+      <button className={'d-md-none rounded px-2'}
         onClick={()=>{setShowModal(!_showModal)}}>
         <Animation animation={MenuClose} isPaused={_showModal} />
       </button>
