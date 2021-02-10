@@ -1,226 +1,152 @@
 /* GLOBAL STYLES */
 
 * {
-    font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 html {
-    -ms-text-size-adjust: 100%;
-    -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
 }
 
-h1{
-    max-width: fit-content;
+h1 {
+  max-width: fit-content;
 }
 
-a{
-    text-decoration: none;
+a {
+  text-decoration: none;
 }
 
-a:hover{
-    color: unset;
-}
-
-/* HEADER BACKGROUND ANIMATION */
-
-@keyframes rotate{
-    0%{
-        transform: rotate(0deg);
-    }
-    50%{
-        transform: rotate(180deg);
-    }
-    100%{
-        transform: rotate(360deg);
-    }
+a:hover {
+  color: unset;
 }
 
 header {
-    background-image: linear-gradient(to bottom right, #062f4f 0%,  #0b5085 100%);
-    height: 750px;
-    max-height: 100vh;
-    position: relative;
-    overflow: hidden;
+  max-height: 100vh;
 }
 
-header::after{
-    animation-duration: 10s;
-    animation-name: rotate;
-    animation-iteration-count: infinite;
-    content: "";
-    display: block;
-    position: absolute;
-    top: 0;
-    width: 100vh;
-    height: 100vh;
-    background-image: url("../images/header.png");
-    background-size: cover;
-    background-position: center center;
-}
-header h1{
-    font-size: clamp(1rem, 10vw, 4rem); 
+.fc-main-yellow {
+  color: #ffcb27;
 }
 
-header a{
-    color: #FFFFFF;
-    font-size: large;
-    width: fit-content;
-    text-decoration: none;
-    transition: all 0.3s ease-in-out;
+.fc-main-red {
+  color: #ee283d;
 }
 
-.a-hover{
-    position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    background-color: #FFFFFF;
-    z-index: -1;
-    border-radius: 0.25rem;
-    transition: all 0.3s ease-in-out;
-    transform: scale(0,1);
+.fc-main-blue {
+  color: #1f7abf;
 }
 
-header a:hover{
-    color: #062f4f;
+/*ANIMATION*/
+
+.hide {
+  transform: translateX(120%);
+}
+.slide-in {
+  transform: translateX(0%);
 }
 
-header a:hover .a-hover{
-    transform: scale(1,1);
+/*HEADER STYLES*/
+
+h1,
+h2 {
+  font-size: clamp(1rem, 10vw, 4rem);
 }
 
+.navbar a,
+.hero a {
+  color: #000;
+  overflow-x: hidden;
+  z-index: 1;
+  transition: all 0.3s ease-in-out;
+}
+.navbar a:last-child,
+.hero a {
+  color: #fff;
+  background-color: #1f7abf;
+}
+.navbar a:hover {
+  color: #fff;
+}
+.navbar a:last-child:hover,
+.hero a:hover {
+  color: #fff;
+  background-color: #175c90;
+}
+.navbar a:hover::after,
+.hero a:hover::after {
+  transform: translateX(0%);
+}
+.navbar a::after,
+.hero a::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  transition: all 0.3s ease-in-out;
+  transform: translateX(110%);
+  background-color: #1f7abf;
+}
+
+.navbar a:last-child::after,
+.hero a::after {
+  background-color: #155485;
+}
+.active {
+  background-color: #1f7abf;
+  color: #fff !important;
+}
 
 button {
-    background-color: transparent;
-    max-width: 45px;
-    border: none;
+  background-color: transparent;
+  max-width: 45px;
+  border: none;
+}
+.mobile-nav {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 1;
+  transition: all 0.5s ease-in-out;
+}
+.mobile-nav img {
+  width: 80%;
+}
+.mobile-nav a {
+  color: #000;
+  font-size: large;
+  width: 100%;
 }
 
-button svg{
-    filter: invert(1);
+.border-light {
+  border: solid 3px #ffffff;
 }
 
-.menu-open svg{
-    filter: invert(0);
+.navbar > a:hover .a-hover {
+  transform: scale(1, 1);
 }
 
-.hero-image{
-    height: 50%;
-    width: 100%;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: contain;
-}
-.hero-image.home{
-    background-image: url("../images/Education.png");
-}
-.hero-image.product{
-    background-image: url("../images/Automatic_updates.png");
+/*CUSTOMERS STYLES*/
+
+.customers img {
+  filter: saturate(0);
 }
 
-@media(min-width: 768px){
-    header::after{
-        width: 100vw;
-        height: 100vw;
-        background-size: contain;
-    }
-    .hero-image{
-        width: 70%;
-        height: 100%;
-    }
+/*FEATURES STYLES*/
+.image-container {
+  overflow-x: hidden;
 }
-.mobile-nav{
-    position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
-    z-index: 1;
-    transition: all 0.5s ease-in-out;
-    background-image: url("../images/header.png");
-    background-position: left center;
-    font-size: x-large;
+.feature-image {
+  max-width: 80%;
+  transition: all 0.5s ease-in-out;
 }
-.mobile-nav a{
-    color: #000;
+@media (min-width: 768px) {
+  .feature-container:nth-child(2n) {
+    flex-direction: row-reverse !important;
+  }
 }
-
-.mobile-nav button{
-    width: fit-content;
-    border: none;
-}
-
-.hide{
-    transform: scale(0,1);
-    transition: all 0.3s ease-in-out;
-}
-
-.open-nav{
-    transform: scale(1,1);
-}
-
-.border-light{
-    border: solid 3px #FFFFFF;
-}
-.active{
-    background-color:  #FFFFFF;
-    color: #062f4f;
-}
-
-
-
-
-
-
-.navbar > a:hover .solution-dropdown{
-    transform: scale(1,1);
-}
-.solution-dropdown{
-    top:50px;
-    left: -100%;
-    background-color: #FFFFFF;
-    z-index: 2;
-    transition: all 0.6s ease-in-out;
-    transform: scale(0,1);
-}
-.solution-dropdown a{
-    color: #000;
-    border-bottom: solid 2px transparent;
-}
-.solution-dropdown a:hover{
-    border-bottom: solid 2px #000;
-}
-.dropdown-image{
-    background-image: url("../images/Automatic_updates.png");
-    height: 100px;
-    width: 100px;
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center center;
-}
-.customers::after{
-    content: "";
-    height: 5px;
-    width: 80%;
-    background-image: linear-gradient(120deg,#c2e9fb 0%, #a1c4fd 100%);
-    position: absolute;
-    bottom: -20px;
-    left: 10%;
-}
-.customers img{
-    max-width: 50%;
-}
-.image-container{
-    background-image: url("../images/header.png");
-    background-position: left center;
-}
-.feature-image{
-    max-width: 80%;
-}
-@media(min-width: 768px){
-    .feature-container:nth-child(2n){
-        flex-direction: row-reverse !important;
-    }
-}
-
-

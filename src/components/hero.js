@@ -1,29 +1,34 @@
 import React from "react"
 import { Link } from "gatsby"
 
-function Hero({ page }){ 
-  
-  let title, description; 
+function Hero({ page }) {
+  let title, description
 
   switch (page) {
     case "home":
       title = "All your inovation in one place"
-      description = " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vulputate, arcu a."
+      description =
+        "Team Coaches helps accelerators, incubators and enterprises to manage their innovation programs in the most efficient way."
       break
     case "product":
       title = "Tools to save you time"
-      description = " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vulputate, arcu a."
+      description =
+        " Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vulputate, arcu a."
       break
-    default: title = "defect title"
+    default:
+      title = "defect title"
   }
-    
-  return(
-    <div>
-      <h1 className="mb-md-4 fw-bolder my-4 text-light">{title}</h1>
-      <p className="mt-md-2 text-light">{description}</p>
-      <Link className="d-inline-block px-2 py-1 rounded position-relative border-light" to="/letstalk">
+
+  return (
+    <div className="hero mt-5 mt-md-0 col-md-4">
+      <h1 className="mb-md-4 fw-bolder my-4 text-dark">{title}</h1>
+      <p className="mt-md-2 text-dark">{description}</p>
+      <Link
+        className="d-inline-block px-3 py-1 rounded-pill position-relative"
+        to="/letstalk"
+        activeClassName="active"
+      >
         Let's Talk
-        <div className="a-hover"/>
       </Link>
     </div>
   )
